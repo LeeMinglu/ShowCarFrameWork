@@ -9,11 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var carModelArray:[Car] = Array()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+      
+        //字典转模型
+        let carsPlist = NSBundle.mainBundle().pathForResource("cars_total.plist", ofType: nil)
+        let carArray = NSArray(contentsOfFile: carsPlist!)
+        
+        for car in carArray! {
+            self.carModelArray.append(Car.parse(dict: car as! NSDictionary))
+        }
+        
+        for model in self.carModelArray {
+            print(model)
+        }
+}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
