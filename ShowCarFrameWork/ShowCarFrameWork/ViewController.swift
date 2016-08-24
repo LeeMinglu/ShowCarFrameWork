@@ -68,13 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell?.textLabel?.text = name
         cell?.imageView?.image = icon
         
-        /*
-         UITableViewCellAccessoryNone,                                                      // don't show any accessory view
-         UITableViewCellAccessoryDisclosureIndicator,                                       // regular chevron. doesn't track
-         UITableViewCellAccessoryDetailDisclosureButton __TVOS_PROHIBITED,                 // info button w/ chevron. tracks
-         UITableViewCellAccessoryCheckmark,                                                 // checkmark. doesn't track
-         */
-        
+       
         //显示叹号  !
 //        cell?.accessoryType = UITableViewCellAccessoryType.DetailButton
         
@@ -86,6 +80,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //只显示指示箭头
          cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
+        let view = UIView()
+        view.backgroundColor = UIColor.purpleColor()
+        
+        cell?.selectedBackgroundView = view
         
         
         //3.返回cell
@@ -109,6 +108,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let Car = self.carModelArray[section]
         return Car.title
     }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if indexPath.row % 2 == 0 {
+//            let view = UIView.init()
+//            view.backgroundColor = UIColor.redColor()
+//            tableView.backgroundView = view
+//        }
+//    }
     
     
     
