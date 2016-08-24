@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var carModelArray:[Car] = Array()
+    var tableView: UITableView!
+    let screenObjc = UIScreen.mainScreen().bounds
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +25,66 @@ class ViewController: UIViewController {
             self.carModelArray.append(Car.parse(dict: car as! NSDictionary))
         }
         
-        for model in self.carModelArray {
-            print(model)
+        
+        
+        let tableViewFrame = CGRectMake(0, 0, screenObjc.width, screenObjc.height)
+        
+        let tableView = UITableView.init(frame: tableViewFrame, style: UITableViewStyle.Grouped)
+        
+        self.tableView = tableView
+        self.view.addSubview(self.tableView)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    
+    //MARK: tableView的数据源方法
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.carModelArray.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let Car = self.carModelArray[section]
+        return Car.cars.count
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //1.创建cell
+        let ID = "car"
+        var cell = tableView.dequeueReusableCellWithIdentifier(ID)
+        
+        if cell == nil {
+            cell = UITableViewCell.init(style: UITableViewCellStyle.Value1, reuseIdentifier: ID)
         }
-}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        //2.将cell赋值
+        let Car = self.carModelArray[indexPath.section]
+        let name = Car.cars[indexPath.row].name
+        let icon = UIImage.init(named: Car.cars[indexPath.row].icon)!
+        
+        cell?.textLabel?.text = name
+        cell?.imageView?.image = icon
+        
+        
+        //3.返回cell
+        return cell!
+    }
+    
+    
+    //显示分组的title
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        var index:[String] = []
+        for indexString in self.carModelArray {
+            index.append(indexString.title)
+        }
+        
+        return index
+  
     }
 
-
+   
 }
 
