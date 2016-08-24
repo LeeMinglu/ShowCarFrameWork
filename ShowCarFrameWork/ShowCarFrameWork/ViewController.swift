@@ -84,6 +84,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return index
   
     }
+    
+    //返回Header标题
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let Car = self.carModelArray[section]
+        return Car.title
+    }
 
    
 }
