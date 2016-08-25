@@ -114,8 +114,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return "footer"
     }
     
-    
-    
+    //隐藏状态栏
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
   
+    //设置状态栏的style,黑或白
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 }
 
