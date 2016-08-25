@@ -109,17 +109,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return Car.title
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if indexPath.row % 2 == 0 {
-//            let view = UIView.init()
-//            view.backgroundColor = UIColor.redColor()
-//            tableView.backgroundView = view
-//        }
-//    }
+    //设置footer
+    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "footer"
+    }
     
     
     
-
-   
+  
 }
 
