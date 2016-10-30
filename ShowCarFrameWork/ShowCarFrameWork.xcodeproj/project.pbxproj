@@ -167,6 +167,7 @@
 					1A3734441D6B375200A8E7B7 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = T9A27F8Q5D;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -334,6 +335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SocererGroup.ShowCarFrameWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -345,6 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SocererGroup.ShowCarFrameWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
