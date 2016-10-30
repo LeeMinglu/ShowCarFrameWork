@@ -76,10 +76,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //         cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         
         //叹号加指示箭头
-//         cell?.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
+        cell?.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
         
         //只显示指示箭头
-         cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+       //  cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         let view = UIView()
         view.backgroundColor = UIColor.purpleColor()
